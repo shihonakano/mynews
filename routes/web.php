@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/create','Admin\ProfileController@add');
     //4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当て
     Route::get('profile/edit','Admin\ProfileController@edit');
+    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
 });
 
 
@@ -29,3 +30,8 @@ Route::group(['prefix' => 'admin'], function() {
 //Route::group(['prefix' => '○○'], function() {
     //Route::get('XXX','Admin\AAAController@bbb');
 //});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
