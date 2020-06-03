@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin'], function() {
     //4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当て
     Route::get('profile/edit','Admin\ProfileController@edit');
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
 
 
