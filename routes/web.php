@@ -17,8 +17,14 @@ Route::get('/', function () {
 
 //１３編集
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
-     Route::post('news/create', 'Admin\NewsController@create'); # 追記
+     //4-1.admin/profile/createにアクセスしたらProfileController の add Actionに割り当て
+    Route::get('profile/create','Admin\ProfileController@add');
+    //4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当て
+    Route::get('profile/edit','Admin\ProfileController@edit');
+    Route::get('news/create', 'Admin\NewsController@add');
+    Route::post('news/create', 'Admin\NewsController@create'); # 追記
+    Route::post('profile/create','Admin\ProfileController@create');
+    Route::get('admin/profile/edit','Admin\ProfileControlle@update') ;
 });
 
 
