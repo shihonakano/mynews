@@ -15,16 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//追加
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add');
-    //4-1.admin/profile/createにアクセスしたらProfileController の add Actionに割り当て
-    Route::get('profile/create','Admin\ProfileController@add');
-    //4-2.admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当て
-    Route::get('profile/edit','Admin\ProfileController@edit');
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+//１３編集
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+     Route::post('news/create', 'Admin\NewsController@create'); # 追記
 });
 
 
