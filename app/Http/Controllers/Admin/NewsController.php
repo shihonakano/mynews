@@ -92,7 +92,7 @@ class NewsController extends Controller
         unset($news_form['_token']);
         // 該当するデータを上書きして保存する
         $news->fill($news_form)->save();
-
+        unset($profile_form['_token']);
         return redirect('admin/news');
     }
     
@@ -105,6 +105,6 @@ class NewsController extends Controller
         // 削除する
         $news->delete();
         return redirect('admin/news/');
-    }  
+  }  
 
 }
