@@ -25,11 +25,7 @@
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="gender" value="{{ $profile_form->gender }}">
-<<<<<<< HEAD
-                         </div>
-=======
                         </div>
->>>>>>> a9294e1b763a8eee22f406e88483d4b9b9e0d6f0
                     </div>
                     
                     <div class="form-group row">
