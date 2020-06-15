@@ -96,6 +96,7 @@ class NewsController extends Controller
         unset($news_form['_token']);
         // 該当するデータを上書きして保存する
         $news->fill($news_form)->save();
+<<<<<<< HEAD
         
         // 以下を追記
         $history = new History;
@@ -103,6 +104,9 @@ class NewsController extends Controller
         $history->edited_at = Carbon::now();
         $history->save();
 
+=======
+        unset($profile_form['_token']);
+>>>>>>> a9294e1b763a8eee22f406e88483d4b9b9e0d6f0
         return redirect('admin/news');
     }
     
@@ -115,6 +119,6 @@ class NewsController extends Controller
         // 削除する
         $news->delete();
         return redirect('admin/news/');
-    }  
+  }  
 
 }
