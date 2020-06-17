@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//
+// 以下を追記することでPlofile Modelが扱えるようになる
 use App\Profile;
+//
+use App\Profilechangelog;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -49,12 +52,18 @@ class ProfileController extends Controller
       $profile = Profile::find($request->id);
       // 送信されてきたフォームデータを格納する
       $profile_form = $request->all();
-      
+      unset($profile_form['_token']);
 
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
-      unset($profile_form['_token']);
-        return redirect('admin/profile/edit');
+      
+      // 課題追記
+        $plofilechangelog = new Profilechangelog;
+        $plofilechangelog->profile_id = $profile->id;
+        $plofilechangelog->edited_at = Carbon::now();
+        $plofilechangelog->save();
+        
+        return redirect('admin/profile/');
     }
     
     
