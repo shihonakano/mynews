@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('news/edit', 'Admin\NewsController@edit');// 追記
     Route::post('news/edit', 'Admin\NewsController@update');//追記
     Route::get('news/delete', 'Admin\NewsController@delete');
+    
 });
 
 
@@ -39,4 +40,7 @@ Route::get('XXX','Admin\AAAController@bbb');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'NewsController@index');
+Route::get('/profile', 'ProfileController@index');
+
 
