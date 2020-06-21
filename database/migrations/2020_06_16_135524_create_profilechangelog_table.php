@@ -20,7 +20,6 @@ class CreateProfilechangelogTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
