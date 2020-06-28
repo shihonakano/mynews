@@ -24,3 +24,6 @@ mix.js('resources/js/app.js', 'public/js')
 Bootstrap - WebサイトやWebページを効率よく開発するためのWebフレームワーク。
             既に出来上がっている雛形を自分のコードでカスタマイズできる。
 scss 　　　 一度定義したcssのスタイルのセットを簡単に呼び出せる
+
+
+aaa
